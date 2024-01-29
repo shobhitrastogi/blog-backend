@@ -14,7 +14,7 @@ dotenv.config()
 app.use(express.json())
 app.use("/images",express.static(path.join(__dirname,"/images")))
 app.use(cors()) 
-const port = 5000;
+const port =process.env.PORT|| 5000;
 
 app.post("/api/upload", upload.single("file"), (req, res) => {
   res.status(200).json("File has been uploaded");
